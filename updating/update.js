@@ -17,20 +17,22 @@ const add=(newBook)=>{
 
     }
 
-    //This function is the function that will delete a book from the database
+    // This function is the function that will delete a book from the database
 
-    // const deleteBook=(id)=>{
-    //     exist.id= booksDatabase.find(ele=>ele.id===id);
-    //     if (!exist){
-    //         console.log("\nBook not found");
+    const deleteBook=(id)=>{
+        var exist= booksDatabase.find(ele=>ele.id===id);
+        if (!exist){
+            console.log("\nBook not found");
             
-    //     }
+        }
 
-    //     else{
-    //         const remainingBook = [];
-    //         for (exist[key]=
-    //     }
-    // }
+        else{
+            var remainingBook = [];
+            remainingBook= booksDatabase.filter(ele=>ele.id!==id);
+            console.log("\nRemained books after deleting\n");
+            console.log(remainingBook);
+        }
+    }
 
 
     //This function is the function that will update a book in the database
@@ -48,6 +50,22 @@ const add=(newBook)=>{
         }
     }
 
+    //This function is the function that will updates many element  in the database
+
+const updateMany=(id,obj)=>{
+         var exist= booksDatabase.find(ele=>ele.id===id);
+        if (!exist){
+            console.log("\nBook not found");
+            
+        }
+        else{
+        for (key in obj){
+            exist[key]=obj[key];
+            console.log("\n the updated ones");
+            console.log(exist);
+        }
+    }
+}
     
 
     
@@ -57,5 +75,7 @@ const add=(newBook)=>{
     module.exports={
         add,
         display,
-        update
+        update,
+        updateMany,
+        deleteBook
     };
