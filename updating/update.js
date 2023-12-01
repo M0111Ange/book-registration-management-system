@@ -36,8 +36,7 @@ const add=(newBook)=>{
     //This function is the function that will update a book in the database
 
      const update=(id,key,value)=>{
-        const exist= 
-        exist.id= booksDatabase.find(ele=>ele.id===id);
+         var exist= booksDatabase.find(ele=>ele.id===id);
         if (!exist){
             console.log("\nBook not found");
             
@@ -48,6 +47,10 @@ const add=(newBook)=>{
             console.log(exist);
         }
     }
+
+    
+
+    
 
 
 
